@@ -41,6 +41,7 @@ export default function ProductSection() {
               icon={Contactless}
               iconColor="info"
               vertical
+              to="/audienceengagement"
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -50,6 +51,7 @@ export default function ProductSection() {
               icon={Accessibility}
               iconColor="success"
               vertical
+              to="/contentcollaboration"
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>

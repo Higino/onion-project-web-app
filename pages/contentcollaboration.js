@@ -17,13 +17,13 @@ import Parallax from "/components/Parallax/Parallax.js";
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPage.js";
 
 // Sections for this page
-import ProductSection from "/pages-sections/LandingPage-Sections/ProductSection.js";
+import ContentCollaborationSection from "/pages-sections/LandingPage-Sections/ContentCollaborationSection.js";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function ContentCollaboration(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -44,12 +44,9 @@ export default function LandingPage(props) {
         <div className={classNames(classes.container)}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Social Media Personal assistent</h1>
-              <h4>
-              Your private AI Assistent!<br />              
-              <br /><br /> Every tool you need to grow your social media accounts
-              < br /><br />AI powered automated media email marketing, audience engagement, content creation 
-              collaboration, analytics, and finance for your media personal business!<br /><br />
+              <h1 className={classes.title}>Content Collaboration</h1>
+              <h4> Review and approve content before it goes live. Otis will help you to collaborate with your team and get content approved before it goes live.
+                   Comment on content and get notified when your content is approved. Provide feedback and get notified when your content is approved.
               </h4>
               <br />
             </GridItem>
@@ -58,9 +55,7 @@ export default function LandingPage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <ProductSection />
-          {/*<TeamSection /> */}
-          {/* <WorkSection /> */}
+          <ContentCollaborationSection />
         </div>
       </div>
       <Footer />

@@ -17,13 +17,13 @@ import Parallax from "/components/Parallax/Parallax.js";
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPage.js";
 
 // Sections for this page
-import ProductSection from "/pages-sections/LandingPage-Sections/ProductSection.js";
+import AudienceEngagementSection from "/pages-sections/LandingPage-Sections/AudienceEngagementSection.js";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function AudienceEngagement(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -44,12 +44,9 @@ export default function LandingPage(props) {
         <div className={classNames(classes.container)}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Social Media Personal assistent</h1>
-              <h4>
-              Your private AI Assistent!<br />              
-              <br /><br /> Every tool you need to grow your social media accounts
-              < br /><br />AI powered automated media email marketing, audience engagement, content creation 
-              collaboration, analytics, and finance for your media personal business!<br /><br />
+              <h1 className={classes.title}>Audience Engagement</h1>
+              <h4> See all your audience engagement in one place. All the comments, likes, and shares from your posts in one place and let Otis help you to engage with your audience.
+
               </h4>
               <br />
             </GridItem>
@@ -58,9 +55,7 @@ export default function LandingPage(props) {
       </Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <ProductSection />
-          {/*<TeamSection /> */}
-          {/* <WorkSection /> */}
+          <AudienceEngagementSection />
         </div>
       </div>
       <Footer />

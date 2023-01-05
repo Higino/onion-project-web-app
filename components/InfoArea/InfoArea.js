@@ -6,6 +6,8 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
+import { useRouter } from 'next/router';
+
 import styles from "/styles/jss/nextjs-material-kit/components/infoStyle.js";
 
 
@@ -13,7 +15,8 @@ const useStyles = makeStyles(styles);
 
 export default function InfoArea(props) {
   const classes = useStyles();
-  const { title, description, iconColor, vertical } = props;
+  const { title, description, iconColor, vertical, to } = props;
+  const router = useRouter();
   const iconWrapper = classNames({
     [classes.iconWrapper]: true,
     [classes[iconColor]]: true,
@@ -25,19 +28,26 @@ export default function InfoArea(props) {
   });
   return (
     <div className={classes.infoArea}>
-      <div className={iconWrapper}>
-        <props.icon className={iconClasses} />
-      </div>
-      <div className={classes.descriptionWrapper}>
-        <h4 className={classes.title}>{title}</h4>
-        <p className={classes.description}>{description}</p>
-      </div>
+      <a href="#" 
+          onClick={(e) => {
+          e.preventDefault();
+          router.push(to);
+        }} >
+        <div className={iconWrapper}>
+          <props.icon className={iconClasses} />
+        </div>
+        <div className={classes.descriptionWrapper}>
+            <h4 className={classes.title}>{title}</h4>
+          <p className={classes.description}>{description}</p>
+        </div>
+      </a>
     </div>
   );
 }
 
 InfoArea.defaultProps = {
-  iconColor: "gray"
+  iconColor: "gray",
+  to: "#"
 };
 
 InfoArea.propTypes = {
@@ -53,5 +63,6 @@ InfoArea.propTypes = {
     "rose",
     "gray"
   ]),
-  vertical: PropTypes.bool
+  vertical: PropTypes.bool,
+  to: PropTypes.string
 };
