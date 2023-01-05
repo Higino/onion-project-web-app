@@ -1,0 +1,6 @@
+{
+    "yaml.schemas": {
+        "file:///Users/gino/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml",
+        "https://json.schemastore.org/github-workflow.json": "file:///Users/gino/Documents/Code/higino-gitbub/nextjs-material-kit-main/.github/workflows/deploy.yml"
+    }
+}
