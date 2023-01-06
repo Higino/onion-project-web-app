@@ -35,7 +35,7 @@ jobs:
           AWS_EC2_METADATA_DISABLED: true
         run: aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID} && aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
       - name: Check AWS CLI configuration
-        run: aws configure list
+        run: ls out
       - name: List S3 buckets
         run: aws s3 ls && ls
       - name: Sync files with S3 bucket
