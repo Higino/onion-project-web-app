@@ -37,6 +37,6 @@ jobs:
       - name: Check AWS CLI configuration
         run: ls out
       - name: List S3 buckets
-        run: aws s3 ls && ls
+        run: aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID} && aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY} && aws s3 ls
       - name: Sync files with S3 bucket
         run: aws s3 sync out s3://otis.development --delete
