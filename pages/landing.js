@@ -31,7 +31,7 @@ export default function LandingPage(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand="Otis"
+        brand="Home"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{

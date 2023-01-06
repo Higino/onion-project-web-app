@@ -31,7 +31,7 @@ export default function ContentCollaboration(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand="Otis"
+        brand="Home"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
