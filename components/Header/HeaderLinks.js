@@ -10,20 +10,23 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Icon from "@material-ui/core/Icon";
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 
 // core components
-import CustomDropdown from "/components/CustomDropdown/CustomDropdown.js";
 import Button from "/components/CustomButtons/Button.js";
+import Email from "@material-ui/icons/Email";
 
 import styles from "/styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
+
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinksCustom(props) {
   const classes = useStyles();
+  const router = useRouter();
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>  {/* Twitter Menu */}
@@ -84,7 +87,7 @@ export default function HeaderLinksCustom(props) {
             target="" // To Open in new tab use target="_blank"
             className={classes.navLink}
           >
-          <Icon className={classes.icons}>fingerprint</Icon> Pre-register Now!
+          <Icon className={classes.icons}>fingerprint</Icon> Pre-register
           </Button>
         </Link> 
       </ListItem>

@@ -2,21 +2,28 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import PreregisterButton from "/components/CustomButtons/PreregisterButton.js";
+import NavPills from "/components/NavPills/NavPills.js";
+import featureTabs from "/pages-sections/LandingPage-Sections/FeaturesTabs.js";
 
 // @material-ui/icons
+import { Accessibility, AccountBox, Assessment, AttachMoney, 
+         Contactless, EmojiObjects, Schedule, Storefront, TrendingUp } from "@material-ui/icons";
+
+
 // core components
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
 import InfoArea from "/components/InfoArea/InfoArea.js";
 
+
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/productStyle.js";
-import { Accessibility, AccountBalance, AccountBox, Assessment, AttachMoney, AutorenewTwoTone, ChatBubbleOutline, Contactless, ContactMail, EmojiObjects, LocalGroceryStore, ModeComment, Schedule, Storefront, TimelapseSharp, TrendingUp } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
 export default function ProductSection() {
   const classes = useStyles();
   return (
+    <>
     <div className={classes.section}>
       <div>
         <GridContainer>
@@ -101,7 +108,7 @@ export default function ProductSection() {
           </GridItem>
         </GridContainer>        
       </div>
-      <div>
+    <div>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
           <h2 className={classes.title}>Pre-register for your AI personal assistent</h2>
@@ -112,8 +119,8 @@ export default function ProductSection() {
           </h5>
         </GridItem>
       </GridContainer>
-
-      </div>
     </div>
+  </div>
+  </>
   );
 }

@@ -13,6 +13,7 @@ import Footer from "/components/Footer/Footer.js";
 import GridContainer from "/components/Grid/GridContainer.js";
 import GridItem from "/components/Grid/GridItem.js";
 import HeaderLinks from "/components/Header/HeaderLinks.js";
+import HeaderLeftLinks from "/components/Header/HeaderLeftLinks.js";
 import Parallax from "/components/Parallax/Parallax.js";
 
 import styles from "/styles/jss/nextjs-material-kit/pages/landingPage.js";
@@ -111,11 +112,12 @@ export default function LandingPage(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand="Home"
+        brand=""
         rightLinks={<HeaderLinks />}
+        leftLinks={<HeaderLeftLinks />}
         fixed
         changeColorOnScroll={{
-          height: 400,
+          height: 200,
           color: "primary"
         }}
         {...rest}
@@ -124,7 +126,7 @@ export default function LandingPage(props) {
         <div className={classNames(classes.container)}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>{headerTitle}</h1>
+              <h2 className={classes.title}>{headerTitle}</h2>
               <h4>{headerText}</h4>
             </GridItem>
           </GridContainer>

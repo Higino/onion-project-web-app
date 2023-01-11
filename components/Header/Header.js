@@ -14,6 +14,8 @@ import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
+import HomeIcon from '@mui/icons-material/Home';
+
 // core components
 import styles from "/styles/jss/nextjs-material-kit/components/headerStyle.js";
 
@@ -63,7 +65,9 @@ export default function Header(props) {
   });
   const brandComponent = (
     <Link href="/landing" as="/landing">
-      <Button className={classes.title}>{brand}</Button>
+      <Button className={classes.title}>
+        <HomeIcon className={classes.icons} />&nbsp;{brand}
+      </Button>
     </Link>
   );
   return (
