@@ -40,7 +40,7 @@ export default function ContentCollaboration(props) {
         }}
         {...rest}
       />
-      <Parallax filter responsive image="/img/otis-personal-assistent.png">      
+      <Parallax filter responsive image="/img/content-collaboration.png">      
         <div className={classNames(classes.container)}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>

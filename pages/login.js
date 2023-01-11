@@ -35,7 +35,7 @@ export default function LoginPage(props) {
       <Header
         absolute
         color="transparent"
-        brand="Otis"
+        brand="Home"
         rightLinks={<HeaderLinks />}
         {...rest}
       />

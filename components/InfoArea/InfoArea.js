@@ -31,7 +31,10 @@ export default function InfoArea(props) {
       <a href="#" 
           onClick={(e) => {
           e.preventDefault();
-          router.push(to);
+          router.push({
+            pathname: '/landing',
+            query: { feature: to }
+          });
         }} >
         <div className={iconWrapper}>
           <props.icon className={iconClasses} />
@@ -40,14 +43,14 @@ export default function InfoArea(props) {
             <h4 className={classes.title}>{title}</h4>
           <p className={classes.description}>{description}</p>
         </div>
-      </a>
+        </a>
     </div>
   );
 }
 
 InfoArea.defaultProps = {
   iconColor: "gray",
-  to: "#"
+  to: "main"
 };
 
 InfoArea.propTypes = {

@@ -18,19 +18,6 @@ export default function ProductSection() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
-      <GridContainer justify="center">
-        <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Pre-register for your AI personal assistent</h2>
-          <PreregisterButton color="success" size="lg" />
-          <h5 className={classes.description}>
-                <b>All-in-one tool for social media creators! </b>
-                Whether you're still a small content creator, an influencer, or an internet opinion maker, 
-                Otis will help you manage your social medial like a pro. 
-                <br/><br/><b>Our powerful AI personal assistent</b> will allow you to automate all the important tasks, of being a content creator and scale your audience.
-                Our AI prowess will allow you to create content faster, engage with your audience better, finance to grow your brand and analyze your content performance.
-          </h5>
-        </GridItem>
-      </GridContainer>
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
@@ -41,7 +28,7 @@ export default function ProductSection() {
               icon={Contactless}
               iconColor="info"
               vertical
-              to="/audienceengagement"
+              to="audienceengagement"
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -51,7 +38,7 @@ export default function ProductSection() {
               icon={Accessibility}
               iconColor="success"
               vertical
-              to="/contentcollaboration"
+              to="contentcollaboration"
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -61,6 +48,7 @@ export default function ProductSection() {
               icon={Assessment}
               iconColor="danger"
               vertical
+              to="mediaanalytics"
             />
           </GridItem>
         </GridContainer>
@@ -72,6 +60,7 @@ export default function ProductSection() {
               icon={AttachMoney}
               iconColor="rose"
               vertical
+              to="financepartner"
             />
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
@@ -111,6 +100,19 @@ export default function ProductSection() {
             />
           </GridItem>
         </GridContainer>        
+      </div>
+      <div>
+      <GridContainer justify="center">
+        <GridItem xs={12} sm={12} md={8}>
+          <h2 className={classes.title}>Pre-register for your AI personal assistent</h2>
+          <PreregisterButton color="success" size="lg" />
+          <h5 className={classes.description}>
+                <b>All-in-one tool for social media creators! </b>
+                Save up to 80% of your time and get more done in less time by pre registring to access our AI personal assistent. Available only for a limited time.
+          </h5>
+        </GridItem>
+      </GridContainer>
+
       </div>
     </div>
   );
