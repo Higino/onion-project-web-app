@@ -1,180 +1,196 @@
-  import React from "react";
-  // @material-ui/core components
-  import { makeStyles } from "@material-ui/core/styles";
-  import InputAdornment from "@material-ui/core/InputAdornment";
-  import Icon from "@material-ui/core/Icon";
-  // @material-ui/icons
-  import Email from "@material-ui/icons/Email";
-  import People from "@material-ui/icons/People";
-  // core components
-  import Header from "/components/Header/Header.js";
-  import HeaderLinks from "/components/Header/HeaderLinks.js";
-  import Footer from "/components/Footer/Footer.js";
-  import GridContainer from "/components/Grid/GridContainer.js";
-  import GridItem from "/components/Grid/GridItem.js";
-  import Button from "/components/CustomButtons/Button.js";
-  import Card from "/components/Card/Card.js";
-  import CardBody from "/components/Card/CardBody.js";
-  import CardHeader from "/components/Card/CardHeader.js";
-  import CardFooter from "/components/Card/CardFooter.js";
-  import CustomInput from "/components/CustomInput/CustomInput.js";
+import React from "react";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Icon from "@material-ui/core/Icon";
+// @material-ui/icons
+import Email from "@material-ui/icons/Email";
+import People from "@material-ui/icons/People";
+// core components
+import Header from "/components/Header/Header.js";
+import HeaderLinks from "/components/Header/HeaderLinks.js";
+import Footer from "/components/Footer/Footer.js";
+import GridContainer from "/components/Grid/GridContainer.js";
+import GridItem from "/components/Grid/GridItem.js";
+import Button from "/components/CustomButtons/Button.js";
+import Card from "/components/Card/Card.js";
+import CardBody from "/components/Card/CardBody.js";
+import CardHeader from "/components/Card/CardHeader.js";
+import CardFooter from "/components/Card/CardFooter.js";
+import CustomInput from "/components/CustomInput/CustomInput.js";
+import axios from 'axios';
 
-  import styles from "/styles/jss/nextjs-material-kit/pages/loginPage.js";
+import styles from "/styles/jss/nextjs-material-kit/pages/loginPage.js";
 
-  const useStyles = makeStyles(styles);
+const useStyles = makeStyles(styles);
 
-  export default function LoginPage(props) {
-    const handleCountMeIn = (e) => {
-      e.preventDefault();
-      const username = document.getElementById("username").value;
-      const email = document.getElementById("email").value;
-      const data = {
-        firstName: username,
-        lastName: "",
-        emailAddress: email,
-      }
-      console.log(data);
-      fetch('https://x1l19h8hn6.execute-api.eu-west-1.amazonaws.com/otis/users/preregister', {
-        method: 'POST',
-        crossorigin: true,    
-        mode: 'no-cors',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      }).then((response) => {
-        console.log(response.json());
-        console.log("success");
-      })
-      .catch((error) => {    
-        console.error(error);   
-        console.log("error"); 
-      });
+export default function LoginPage(props) {
+  const handleCountMeIn = (e) => {
+    e.preventDefault();
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const data = {
+      firstName: username,
+      lastName: "",
+      emailAddress: email,
     }
-    const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
-    setTimeout(function () {
-      setCardAnimation("");
-    }, 700);
-    const classes = useStyles();
-    const { ...rest } = props;
-    return (
-      <div>
-        <Header
-          absolute
-          color="transparent"
-          brand=""
-          rightLinks={<HeaderLinks />}
-          {...rest}
-        />
-        <div
-          className={classes.pageHeader}
-          style={{
-            backgroundImage: "url('/img/otis-login.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "top center"
-          }}
-        >
-          <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={6} md={4}>
-                <Card className={classes[cardAnimaton]}>
-                  <form className={classes.form}>
-                    <CardHeader color="primary" className={classes.cardHeader}>
-                      <h4>Preregister for a free version</h4>
-                      <div className={classes.socialLine}>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <i className={"fab fa-twitter"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={(e) => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button>
-                      </div>
-                    </CardHeader>
-                    <p className={classes.divider}>We will be creating free trial users based on pre-registration order so be quick</p>
-                    <CardBody>
-                      <CustomInput
-                        labelText="Your Name..."
-                        id="username"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "text",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <People className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                      <CustomInput
-                        labelText="Email..."
-                        id="email"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "email",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Email className={classes.inputIconsColor} />
-                            </InputAdornment>
-                          )
-                        }}
-                      />
-                      {/* <CustomInput
-                        labelText="Password"
-                        id="pass"
-                        formControlProps={{
-                          fullWidth: true
-                        }}
-                        inputProps={{
-                          type: "password",
-                          endAdornment: (
-                            <InputAdornment position="end">
-                              <Icon className={classes.inputIconsColor}>
-                                lock_outline
-                              </Icon>
-                            </InputAdornment>
-                          ),
-                          autoComplete: "off"
-                        }}
-                      /> */}
-                    </CardBody>
-                    <CardFooter className={classes.cardFooter}>
-                      <Button simple color="primary" size="lg" onClick={handleCountMeIn}>
-                        Count me in!
-                      </Button>
-                    </CardFooter>
-                  </form>
-                </Card>
-              </GridItem>
-            </GridContainer>
-          </div>
-          <Footer whiteFont />
-        </div>
-      </div>
-    );
+    console.log(data);
+/*     axios.post('https://x1l19h8hn6.execute-api.eu-west-1.amazonaws.com/otis/users/preregister', 
+                JSON.stringify(data),
+                {
+                  xhrFields: {
+                    crossorigin: true,
+                    mode: 'no-cors'
+                  },
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                  }
+  }).then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+ */    fetch('https://x1l19h8hn6.execute-api.eu-west-1.amazonaws.com/otis/users/preregister', {
+      method: 'POST',
+      crossorigin: true,    
+      mode: 'no-cors',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'      }
+    }).then((response) => {
+      console.log(`POST request returned a ${response.status} ${response.statusText}`)
+    })
+    .catch((error) => {    
+      console.error(error);   
+      console.log("error"); 
+    });
   }
+  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  setTimeout(function () {
+    setCardAnimation("");
+  }, 700);
+  const classes = useStyles();
+  const { ...rest } = props;
+  return (
+    <div>
+      <Header
+        absolute
+        color="transparent"
+        brand=""
+        rightLinks={<HeaderLinks />}
+        {...rest}
+      />
+      <div
+        className={classes.pageHeader}
+        style={{
+          backgroundImage: "url('/img/otis-login.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "top center"
+        }}
+      >
+        <div className={classes.container}>
+          <GridContainer justify="center">
+            <GridItem xs={12} sm={6} md={4}>
+              <Card className={classes[cardAnimaton]}>
+                <form className={classes.form}>
+                  <CardHeader color="primary" className={classes.cardHeader}>
+                    <h4>Preregister for a free version</h4>
+                    <div className={classes.socialLine}>
+                      <Button
+                        justIcon
+                        href="#pablo"
+                        target="_blank"
+                        color="transparent"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <i className={"fab fa-twitter"} />
+                      </Button>
+                      <Button
+                        justIcon
+                        href="#pablo"
+                        target="_blank"
+                        color="transparent"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <i className={"fab fa-facebook"} />
+                      </Button>
+                      <Button
+                        justIcon
+                        href="#pablo"
+                        target="_blank"
+                        color="transparent"
+                        onClick={(e) => e.preventDefault()}
+                      >
+                        <i className={"fab fa-google-plus-g"} />
+                      </Button>
+                    </div>
+                  </CardHeader>
+                  <p className={classes.divider}>We will be creating free trial users based on pre-registration order so be quick</p>
+                  <CardBody>
+                    <CustomInput
+                      labelText="Your Name..."
+                      id="username"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "text",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <People className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        )
+                      }}
+                    />
+                    <CustomInput
+                      labelText="Email..."
+                      id="email"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "email",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Email className={classes.inputIconsColor} />
+                          </InputAdornment>
+                        )
+                      }}
+                    />
+                    {/* <CustomInput
+                      labelText="Password"
+                      id="pass"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        type: "password",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Icon className={classes.inputIconsColor}>
+                              lock_outline
+                            </Icon>
+                          </InputAdornment>
+                        ),
+                        autoComplete: "off"
+                      }}
+                    /> */}
+                  </CardBody>
+                  <CardFooter className={classes.cardFooter}>
+                    <Button simple color="primary" size="lg" onClick={handleCountMeIn}>
+                      Count me in!
+                    </Button>
+                  </CardFooter>
+                </form>
+              </Card>
+            </GridItem>
+          </GridContainer>
+        </div>
+        <Footer whiteFont />
+      </div>
+    </div>
+  );
+}
