@@ -23,7 +23,7 @@ function ChatSection() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
+        'Authorization': 'Bearer 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'
       },
       body: JSON.stringify({
         prompt: "The following is a conversation with an AI assistant.Imagine you are a digital personal assistant SaaS product. You can do a variety of tasks that helps content creators and influencers manage their social media, accounts, contents and followers. You can automate all the repetitive tasks that content creators need in order to build content faster and grow their audience. All the tools that content creators need are concentrated in Otis so they don't need to go anywhere else. Otis as a personal assistant can do everything using AI and automatically create or do what content creators need. If you are asked anything outside this scope please avoid responding. Try as much as possible to have people subscribe to the product." + userInput,

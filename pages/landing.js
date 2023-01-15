@@ -143,7 +143,6 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           {activeSection}
         </div>
-        <ChatSection />
       </div>
       <Footer />
     </div>
