@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
+import { TextField } from '@material-ui/core';
+import Button from "/components/CustomButtons/Button.js";
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "/styles/jss/nextjs-material-kit/pages/landingPageSections/chatStyles.js";
+
+const useStyles = makeStyles(styles);
 
 function ChatSection() {
+  const classes = useStyles();
   const [userInput, setUserInput] = useState('');
   const [messages, setMessages] = useState([
     {
-      author: 'ChatGPT',
-      text: 'Hello, how can I help you today?',
+      author: 'Otis',
+      text: 'Hello, I am your personal assistent. Eager to help you. Ask me anything and I will tell you how I can help you as your personal assistant?',
     },
   ]);
 
   const handleSubmit = async event => {
     event.preventDefault();
     // Send user input to OpenAI API
-    const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+    const response = await fetch('https://api.openai.com/v1/engines/text-davinci-003/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_API_KEY'
+        'Authorization': 'Bearer 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'
       },
       body: JSON.stringify({
-        prompt: userInput,
+        prompt: "The following is a conversation with an AI assistant.Imagine you are a digital personal assistant SaaS product. You can do a variety of tasks that helps content creators and influencers manage their social media, accounts, contents and followers. You can automate all the repetitive tasks that content creators need in order to build content faster and grow their audience. All the tools that content creators need are concentrated in Otis so they don't need to go anywhere else. Otis as a personal assistant can do everything using AI and automatically create or do what content creators need. If you are asked anything outside this scope please avoid responding. Try as much as possible to have people subscribe to the product." + userInput,
         max_tokens: 100,
-        temperature: 0.5
+        temperature: 0.9
       }),
     });
     const json = await response.json();
@@ -29,11 +36,11 @@ function ChatSection() {
     setMessages([
       ...messages,
       {
-        author: 'User',
+        author: 'Me',
         text: userInput,
       },
       {
-        author: 'ChatGPT',
+        author: 'Otis',
         text: json.choices[0].text,
       },
     ]);
@@ -42,7 +49,6 @@ function ChatSection() {
 
   return (
     <div>
-      <h1>Chat</h1>
       <div>
         {messages.map((message, index) => (
           <div key={index}>
@@ -51,12 +57,20 @@ function ChatSection() {
         ))}
       </div>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={userInput}
-          onChange={event => setUserInput(event.target.value)}
-        />
-        <button type="submit">Send</button>
+        <TextField
+            type="text"
+            InputProps={{
+                classes: {
+                    input: classes.whiteText,
+                },
+              }}
+            value={userInput}
+            onChange={event => setUserInput(event.target.value)}
+            variant="outlined"
+            focused
+            fullWidth
+            />
+        <Button simple color="secondary" size="lg" type="submit">Send query</Button>
       </form>
     </div>
   );

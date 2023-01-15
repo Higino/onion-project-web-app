@@ -24,6 +24,7 @@ import AudienceEngagementSection from "/pages-sections/LandingPage-Sections/Audi
 import ContentCollaborationSection from "/pages-sections/LandingPage-Sections/ContentCollaborationSection.js";
 import MediaAnalyticsSection from "/pages-sections/LandingPage-Sections/MediaAnalyticsSection.js";
 import FinancePartnerSection from "/pages-sections/LandingPage-Sections/FinancePartnerSection.js";
+import ChatSection from "/pages-sections/LandingPage-Sections/ChatSection.js";
 
 
 import { oneOf } from "prop-types";
@@ -129,6 +130,12 @@ export default function LandingPage(props) {
               <h2 className={classes.title}>{headerTitle}</h2>
               <h4>{headerText}</h4>
             </GridItem>
+            <GridItem xs={12} sm={12} md={6} direction="column">
+              <h4 className={classes.title}>Chat with me to know more:</h4>
+              <div className={classes.chatContainer}>
+                <ChatSection className={classes.chatContainer}/>
+              </div>
+            </GridItem>
           </GridContainer>
         </div>
       </Parallax>
@@ -136,6 +143,7 @@ export default function LandingPage(props) {
         <div className={classes.container}>
           {activeSection}
         </div>
+        <ChatSection />
       </div>
       <Footer />
     </div>
