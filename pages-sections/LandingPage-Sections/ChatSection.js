@@ -19,19 +19,26 @@ function ChatSection() {
   const handleSubmit = async event => {
     event.preventDefault();
     // Send user input to OpenAI API
-    const response = await fetch('https://api.openai.com/v1/engines/text-davinci-003/completions', {
+    const response = await fetch('https://x1l19h8hn6.execute-api.eu-west-1.amazonaws.com/otis/users/chat', {
       method: 'POST',
+      crossorigin: true,    
+      mode: 'no-cors',
+      body: JSON.stringify({
+        prompt: userInput,
+      }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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'
-      },
-      body: JSON.stringify({
-        prompt: "The following is a conversation with an AI assistant.Imagine you are a digital personal assistant SaaS product. You can do a variety of tasks that helps content creators and influencers manage their social media, accounts, contents and followers. You can automate all the repetitive tasks that content creators need in order to build content faster and grow their audience. All the tools that content creators need are concentrated in Otis so they don't need to go anywhere else. Otis as a personal assistant can do everything using AI and automatically create or do what content creators need. If you are asked anything outside this scope please avoid responding. Try as much as possible to have people subscribe to the product." + userInput,
-        max_tokens: 100,
-        temperature: 0.9
-      }),
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*'
+      }
+    }).then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {    
+      console.error(error);   
+      console.log("error"); 
     });
-    const json = await response.json();
+
     // Add user input and ChatGPT response to messages
     setMessages([
       ...messages,
@@ -41,7 +48,7 @@ function ChatSection() {
       },
       {
         author: 'Otis',
-        text: json.choices[0].text,
+        text: "json.response",
       },
     ]);
     setUserInput('');
@@ -70,7 +77,7 @@ function ChatSection() {
             focused
             fullWidth
             />
-        <Button simple color="secondary" size="lg" type="submit">Send query</Button>
+        <Button simple color="primary" size="lg" type="submit">Send query</Button>
       </form>
     </div>
   );

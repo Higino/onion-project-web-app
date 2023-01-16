@@ -130,7 +130,7 @@ export default function LandingPage(props) {
               <h2 className={classes.title}>{headerTitle}</h2>
               <h4>{headerText}</h4>
             </GridItem>
-            <GridItem xs={12} sm={12} md={6} direction="column">
+            <GridItem container xs={12} sm={12} md={6} direction="column" alignItems="flex-end">
               <h4 className={classes.title}>Chat with me to know more:</h4>
               <div className={classes.chatContainer}>
                 <ChatSection className={classes.chatContainer}/>
