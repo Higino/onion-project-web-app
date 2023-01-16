@@ -52,7 +52,9 @@ export default function LoginPage(props) {
     .catch(function (error) {
       console.log(error);
     });
- */    fetch('https://x1l19h8hn6.execute-api.eu-west-1.amazonaws.com/otis/users/preregister', {
+ */
+  /*  TODO: Remove hard coded endpoint. Should be a configuration */    
+  fetch('https://api.media-personal-assistant.com/otis/users/preregister', {
       method: 'POST',
       crossorigin: true,    
       mode: 'no-cors',

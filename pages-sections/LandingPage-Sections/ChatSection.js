@@ -18,18 +18,15 @@ function ChatSection() {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    // Send user input to OpenAI API
-    const response = await fetch('https://x1l19h8hn6.execute-api.eu-west-1.amazonaws.com/otis/users/chat', {
+
+    /*  TODO: Remove hard coded endpoint. Should be a configuration */    
+    const response = await fetch('https://api.media-personal-assistant.com/otis/users/chat', {
       method: 'POST',
-      crossorigin: true,    
-      mode: 'no-cors',
       body: JSON.stringify({
         prompt: userInput,
       }),
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': '*'
+        'Content-Type': 'application/json'
       }
     }).then((response) => {
       console.log(response)
