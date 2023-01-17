@@ -20,7 +20,7 @@ function ChatSection() {
     event.preventDefault();
 
     /*  TODO: Remove hard coded endpoint. Should be a configuration */    
-    const response = await fetch('https://api.media-personal-assistant.com/otis/users/chat', {
+    let response = await fetch('https://api.media-personal-assistant.com/api/v1/chat', {
       method: 'POST',
       body: JSON.stringify({
         prompt: userInput,
@@ -28,14 +28,12 @@ function ChatSection() {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then((response) => {
-      console.log(response)
-    })
-    .catch((error) => {    
-      console.error(error);   
-      console.log("error"); 
+    }).then(response => response.json())
+    .catch(error => {
+      console.error('Error:', error);
     });
 
+    const data = await response.response;
     // Add user input and ChatGPT response to messages
     setMessages([
       ...messages,
@@ -45,7 +43,7 @@ function ChatSection() {
       },
       {
         author: 'Otis',
-        text: "json.response",
+        text: data,
       },
     ]);
     setUserInput('');

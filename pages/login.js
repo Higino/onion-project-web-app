@@ -54,7 +54,7 @@ export default function LoginPage(props) {
     });
  */
   /*  TODO: Remove hard coded endpoint. Should be a configuration */    
-  fetch('https://api.media-personal-assistant.com/otis/users/preregister', {
+  fetch('https://api.media-personal-assistant.com/api/otis/users/preregister', {
       method: 'POST',
       crossorigin: true,    
       mode: 'no-cors',
