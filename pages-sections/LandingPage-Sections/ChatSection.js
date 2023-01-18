@@ -18,12 +18,19 @@ function ChatSection() {
 
   const handleSubmit = async event => {
     event.preventDefault();
-
+    const question = userInput
+    setUserInput("")
+    setMessages([
+      {
+        author: 'Me',
+        text: userInput,
+      }
+    ])
     /*  TODO: Remove hard coded endpoint. Should be a configuration */    
     let response = await fetch('https://api.media-personal-assistant.com/api/v1/chat', {
       method: 'POST',
       body: JSON.stringify({
-        prompt: userInput,
+        prompt: question,
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -36,10 +43,9 @@ function ChatSection() {
     const data = await response.response;
     // Add user input and ChatGPT response to messages
     setMessages([
-      ...messages,
       {
         author: 'Me',
-        text: userInput,
+        text: question,
       },
       {
         author: 'Otis',
