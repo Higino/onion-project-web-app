@@ -6,10 +6,6 @@ const landingPageStyle = {
     color: "#FFFFFF",
     ...container
   },
-  chatContainer: {
-    height: '300px',
-    overflowY: 'scroll'
-  },
   title: {
     ...title,
     display: "inline-block",

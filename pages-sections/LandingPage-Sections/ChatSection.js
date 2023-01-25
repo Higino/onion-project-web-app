@@ -12,7 +12,7 @@ function ChatSection() {
   const [messages, setMessages] = useState([
     {
       author: 'Otis',
-      text: 'Hello, I am your personal assistent. Eager to help you. Ask me anything and I will tell you how I can help you as your personal assistant?',
+      text: 'Hello, I am your personal assistent. Ask me anything and I will tell you how I can help you as your personal assistant?',
     },
   ]);
 

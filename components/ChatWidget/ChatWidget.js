@@ -5,8 +5,7 @@ import ChatButton from "./ChatButton";
 import {styles} from "./styles";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
-import ChatSection from "../../pages-sections/LandingPage-Sections/ChatSection";
-import CircularProgress from '@mui/material/CircularProgress';
+import ChatWindow from "./ChatWindow";
 
 
 const useStyles = makeStyles(styles);
@@ -19,7 +18,7 @@ export default function ChatWidget(props) {
     
     const openChatWindow = (e) => {
         e.preventDefault();
-        setVisible(visible? false : true);
+        setVisible(true);
     }
 
     useEffect(() => {
@@ -35,25 +34,19 @@ export default function ChatWidget(props) {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         }
-    }, [ref, setVisible]);
+    }, [ref]);
     return (
-        <>
-        <div>
-            <div
-                ref={ref}
-                className={classNames(classes.chatWindow, classes.transition5)} 
-                style={{...{opacity: visible ? '1': '0'}}}>
-                    <div
-                    style={{
-                        ...{height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}
-                    }}>
-                        <CircularProgress />
-                    </div>
-                    <ChatSection />
+        <>  
+        <div style={{...props.style}}>
+            <div ref={ref} className={classNames(classes.transition3)} 
+                style={{
+                        ...{opacity: visible ? '1': '0'},
+                        ...{visibility: visible ? 'visible': 'hidden'}, 
+                        }} >
+                <ChatWindow />   
             </div>
-            <ChatButton onClick={openChatWindow} isVisible={!visible}
-                style={{...props.style}} />
-        </div>
+            <ChatButton onClick={openChatWindow}/>
+            </div>
         </>
     )
 }
