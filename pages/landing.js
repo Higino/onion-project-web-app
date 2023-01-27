@@ -130,7 +130,8 @@ export default function LandingPage(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h2 className={classes.title}>{headerTitle}</h2>
               <h4>{headerText}</h4>
-              <SupportEngine               
+              <h4 className={classes.title} style={{textAlign: 'right'}}>CHAT with me and know more </h4>
+            <SupportEngine               
                 style={{
                     zIndex: 1000,
                     position: 'fixed',
