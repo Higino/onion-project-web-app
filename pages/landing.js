@@ -29,6 +29,7 @@ import ChatSection from "/pages-sections/LandingPage-Sections/ChatSection.js";
 
 import { oneOf } from "prop-types";
 import { useRouter } from 'next/router';
+import SupportEngine from "../components/SupportEngine";
 
 const dashboardRoutes = [];
 
@@ -104,7 +105,7 @@ export default function LandingPage(props) {
       break;
     default:
     imageSrc = '/img/otis-personal-assistent.png';
-    headerTitle = 'Social Media Personal Assistent';
+    headerTitle = 'Personal Assistent';
     headerText = <>All-in-one tool for social media creators! Whether you're still a small content creator, an influencer, or an internet opinion maker, Otis will help you manage your social medial like a pro.< br /><br />Our powerful AI personal assistent will allow you to automate all the important tasks, of being a content creator and scale your audience. Our AI prowess will allow you to create content faster, engage with your audience better, finance to grow your brand and analyze your content performance.</>;
     activeSection = <ProductSection />;
   }
@@ -129,12 +130,14 @@ export default function LandingPage(props) {
             <GridItem xs={12} sm={12} md={6}>
               <h2 className={classes.title}>{headerTitle}</h2>
               <h4>{headerText}</h4>
-            </GridItem>
-            <GridItem container xs={12} sm={12} md={6} direction="column" alignItems="flex-end">
-              <h4 className={classes.title}>Chat with me to know more:</h4>
-              <div className={classes.chatContainer}>
-                <ChatSection className={classes.chatContainer}/>
-              </div>
+              <SupportEngine               
+                style={{
+                    zIndex: 1000,
+                    position: 'fixed',
+                    top: 'min(calc(0vh + 500px), calc(100vh - 190px))',
+                    right: '75px',
+                }}
+              /> 
             </GridItem>
           </GridContainer>
         </div>
