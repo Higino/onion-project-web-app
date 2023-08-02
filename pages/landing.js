@@ -58,7 +58,7 @@ export default function LandingPage(props) {
     case 'audienceengagement':
       imageSrc = '/img/audience-engagement.png';
       headerTitle = 'Audience Engagement';
-      headerText = <>See all your audience engagement in one place. All the comments, likes, and shares from your posts in one place and let Otis help you to engage with your audience.</>;
+      headerText = <>Unlock the true potential of your online presence with Otis, the cutting-edge tool designed to revolutionize your social media engagement! Say goodbye to hours spent manually monitoring post comments and sifting through overwhelming engagement data. Our advanced AI-driven technology scans and analyzes every post, comment, and interaction, providing you with valuable insights into the sentiment surrounding your content.</>;
       activeSection = <AudienceEngagementSection />;
       break;
     case 'contentcollaboration':
@@ -106,7 +106,11 @@ export default function LandingPage(props) {
     default:
     imageSrc = '/img/otis-personal-assistent.png';
     headerTitle = 'Personal Assistent';
-    headerText = <>All-in-one tool for social media creators! Whether you're still a small content creator, an influencer, or an internet opinion maker, Otis will help you manage your social medial like a pro.< br /><br />Our powerful AI personal assistent will allow you to automate all the important tasks, of being a content creator and scale your audience. Our AI prowess will allow you to create content faster, engage with your audience better, finance to grow your brand and analyze your content performance.</>;
+    headerText = <>All-in-one tool for social media creators! Whether you're still a small content creator, an influencer,
+     or an internet opinion maker, Otis will help you manage your social medial like a pro.< br /><br />
+     Our AI personal assistent will allow you to automate all the important tasks, of being a 
+     content creator and scale your audience. Our AI tools will prowess will putallow you to create content faster, 
+     engage with your audience better, finance to grow your brand and analyze your content performance.</>;
     activeSection = <ProductSection />;
   }
   return (
